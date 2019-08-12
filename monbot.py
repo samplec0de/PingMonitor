@@ -37,7 +37,6 @@ def send(msg):
             bot.send_message(chat_id=user_id, text=msg, parse_mode="HTML")
         except:
             pass
-            # traceback.print_exc(file='error.log')
 
 
 def ping_task():
@@ -79,11 +78,9 @@ def status(message):
     ans = ""
     for host in last_online:
         ans += f"<i>{host}</i>: <b>{'OK' if last_online[host] else 'BAD'}</b>\n"
-    # print(ans)
     bot.send_message(chat_id=message.chat.id, text=ans, parse_mode="HTML")
 
 
-print('YES')
 executor.submit(ping_task)
 while True:
     try:
